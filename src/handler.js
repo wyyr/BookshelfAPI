@@ -146,6 +146,7 @@ const updateBookByIdHandler = (request, h) => {
     reading,
   } = request.payload;
   const updatedAt = new Date().toISOString();
+  const finished = pageCount === readPage;
 
   if (!name) {
     const response = h.response({
@@ -179,6 +180,7 @@ const updateBookByIdHandler = (request, h) => {
       publisher,
       pageCount,
       readPage,
+      finished,
       reading,
       updatedAt,
     };
