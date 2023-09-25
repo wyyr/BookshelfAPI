@@ -8,8 +8,6 @@ const init = async () => {
   });
 
   server.route(routes);
-
-  console.log(`Bookshelf Application Server is running on ${server.info.uri}`);
   await server.start();
 };
 
