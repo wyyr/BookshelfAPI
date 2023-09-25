@@ -84,15 +84,15 @@ const getAllBookHandler = (request, h) => {
 
   let filterBooks = books;
   if (name !== undefined) {
-    filterBooks = books.filter((book) => book.name === name);
+    filterBooks = filterBooks.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
   }
 
   if (finished !== undefined) {
-    filterBooks = books.filter((book) => book.finished === !!+finished);
+    filterBooks = filterBooks.filter((book) => book.finished === !!+finished);
   }
 
   if (reading !== undefined) {
-    filterBooks = books.filter((book) => book.reading === !!+reading);
+    filterBooks = filterBooks.filter((book) => book.reading === !!+reading);
   }
 
   const response = h.response({
